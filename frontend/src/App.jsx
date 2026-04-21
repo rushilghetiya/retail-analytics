@@ -2882,11 +2882,11 @@ export default function App() {
 
   function pollJob(id, fname, videoMeta) {
     const iv = setInterval(() => {
-      fetch(`http://localhost:8000/job/${id}`).then(r=>r.json()).then(j => {
+      fetch(`https://retail-analytics-vw7b.onrender.com/upload/job/${id}`).then(r=>r.json()).then(j => {
         setProgress(j.progress); setStatus(j.status);
         if (j.progress >= 100) {
           clearInterval(iv);
-          fetch(`http://localhost:8000/analytics/${id}`).then(r=>r.json()).then(analytics => {
+          fetch(`https://retail-analytics-vw7b.onrender.com/upload/analytics/${id}`).then(r=>r.json()).then(analytics => {
             const hm = generateMockHeatmap();
             // Use real backend numbers when available, video-scaled mock for the rest
             const mockBase = generateMockData(fname, videoMeta);
