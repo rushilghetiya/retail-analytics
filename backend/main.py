@@ -19,6 +19,8 @@ app = FastAPI(title="RetailEns API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=["https://retail-analytics-flax.vercel.app"],
+    allow_credentials=True,
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
