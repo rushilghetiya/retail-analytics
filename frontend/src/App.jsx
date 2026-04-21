@@ -2837,7 +2837,7 @@ export default function App() {
   function runProcessing(file, videoMeta) {
     // ── First try the real backend ────────────────────────────────────────────
     const fd = new FormData(); fd.append("video", file);
-    fetch(`http://localhost:8000/upload`, { method:"POST", body:fd })
+    fetch(`https://retail-analytics-vw7b.onrender.com/upload`, { method:"POST", body:fd })
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(({ job_id }) => pollJob(job_id, file.name, videoMeta))
       .catch(() => simulateProcessing(file.name, videoMeta));
